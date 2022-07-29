@@ -1,14 +1,10 @@
 package company.project.profileapp.Profile
 
-import android.content.Context
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +15,8 @@ import company.project.profileapp.R
 import company.project.profileapp.Utils.NetworkUtils
 import company.project.profileapp.adapter.ProfileAdapter
 import company.project.profileapp.model.ExpandableUserModel
-import okhttp3.internal.Util
+import company.project.profileapp.viewmodel.ProfileViewModel
+import company.project.profileapp.viewmodel.ProfileViewModelFactory
 
 class ProfileActivity : AppCompatActivity() {
 

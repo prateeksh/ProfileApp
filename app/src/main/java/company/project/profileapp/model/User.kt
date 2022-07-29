@@ -4,6 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+// This is the data class which has been used for the database and model class for data fetched from API calls
+
 @Entity(tableName = "user")
 data class User(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,

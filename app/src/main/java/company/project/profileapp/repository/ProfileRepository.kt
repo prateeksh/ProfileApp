@@ -1,4 +1,4 @@
-package company.project.profileapp.Profile
+package company.project.profileapp.repository
 
 import android.content.Context
 import android.util.Log
@@ -9,6 +9,9 @@ import company.project.profileapp.api.ApiService
 import company.project.profileapp.model.User
 import company.project.profileapp.room.UserDatabase
 
+/*This Repository Class is used for generating API call to the server
+and saving the data to the Room Database if the internet is available
+here if the internet is not available the previous saved data will be populated */
 
 class ProfileRepository (
     private val apiService: ApiService,
@@ -25,32 +28,14 @@ class ProfileRepository (
 
         if (NetworkUtils.isInternetAvailable(applicationContext)) {
 
-          /*  Log.e("Repository Class", "getCoinsData: method called ",)
-            val retrofitCall = apiService.getUsers()
-
-            Log.e("Repository Class", retrofitCall.request().url().toString())
-            retrofitCall.enqueue(object : Callback<User> {
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-*/
             val response = apiService.getUsers()
             if (response.body() != null)
                     userDatabase.userDao().insertUser(response.body()!!)
                     dataset.postValue(response.body())
-                    Log.e("RetrofitCall", response.body().toString())
-
-            /*    }
-
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    Log.e("RetrofitCall", t.toString())
-                }
-
-
-            })*/
         }else{
             val user = userDatabase.userDao().getUsers()
             val userList = User(0,user.data)
-            Log.e("repo", "getUsersData: "+ userList.data[0].firstname)
-           dataset.postValue(userList)
+            dataset.postValue(userList)
 
         }
     }

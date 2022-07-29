@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy.IGNORE
 import androidx.room.Query
 import company.project.profileapp.model.User
 
+//This is the Data Access Object used for Room Database for inserting and querying in case of no Internet
 @Dao
 interface UserDao {
 
