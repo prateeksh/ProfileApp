@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProfileApp</string>
+    <string name="no_internet">Internet not available loading from database</string>
+    <string name="year_of_experience">Year of Experience</string>
+    <string name="work_experience">Work Experience</string>
+    <string name="education">Education</string>
+</resources>
